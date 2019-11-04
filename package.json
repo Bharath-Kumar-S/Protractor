@@ -1,0 +1,22 @@
+{
+  "name": "protractor_angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bharath-Kumar-S/Protractor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bharath-Kumar-S/Protractor/issues"
+  },
+  "homepage": "https://github.com/Bharath-Kumar-S/Protractor#readme",
+  "devDependencies": {
+    "protractor": "^5.4.2"
+  }
+}
