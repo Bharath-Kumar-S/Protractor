@@ -1,3 +1,5 @@
+const Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
+
 exports.config = {
     framework: 'jasmine',
     // seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -6,11 +8,18 @@ exports.config = {
     baseUrl: 'http://juliemr.github.io/protractor-demo/',
     rootElement: `*[ng-app]`,
     onPrepare: async () => {
-    //     // await browser.waitForAngularEnabled(false);
-        await browser.driver.manage().window().maximize();
-        await browser.waitForAngularEnabled(true);
+        browser.driver.manage().window().maximize();
+        browser.waitForAngularEnabled(true);
         browser.ignoreSynchronization = false;
         browser.manage().deleteAllCookies().then(() => { console.log("cache cleared") }
+        );
+        jasmine.getEnv().addReporter(
+            new Jasmine2HtmlReporter({
+                savePath: 'target/screenshots',
+                screenshotsFolder: 'images',
+                takeScreenshots: true,
+                takeScreenshotsOnlyOnFailures: true
+            })
         );
     },
     // capabilities: {

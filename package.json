@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Bharath-Kumar-S/Protractor#readme",
   "devDependencies": {
-    "protractor": "^5.4.2"
+    "protractor": "^5.4.2",
+    "protractor-jasmine2-html-reporter": "0.0.7"
   }
 }
