@@ -24,6 +24,9 @@ exports.config = {
     },
     // capabilities: {
     //     browserName: 'chrome'
+    //     chromeOptions: {
+    //         args: ['--disable-notifications']
+    //     }
     // },
     // multiCapabilities: [{
     //     browserName: 'firefox'

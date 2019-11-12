@@ -1,8 +1,10 @@
-// http://www.way2automation.com/angularjs-protractor/banking/#/customer
 const loc = require('../Pages/Banking_pages').loc;
 const libs = require('../Pages/Banking_pages').lib
 
+
 describe('Simple tests', () => {
+
+    browser.ignoreSynchronization = false;
 
     beforeEach(() => {
         browser.driver.get('http://www.way2automation.com/angularjs-protractor/banking/#/login');
@@ -42,7 +44,19 @@ describe('Simple tests', () => {
         expect(loc.manager.listCustomers.btn.isDisplayed()).toEqual(true)
         expect(loc.manager.openAccount.isDisplayed()).toEqual(true)
         expect(libs.getAllCustomers()).toEqual('Hermoine');
-
     });
+
+    it('Add a customer and open account - later delete the customer', async () => {
+        let data = { fname: 'Bharath', lname: 'Kumar', postal: '12345', currency: 'Rupee' }
+        libs.manager_login();
+        expect(loc.manager.addCustomer.isDisplayed()).toEqual(true)
+        expect(loc.manager.listCustomers.btn.isDisplayed()).toEqual(true)
+        expect(loc.manager.openAccount.isDisplayed()).toEqual(true)
+        expect(libs.add_customer(data)).toContain('Customer added')
+        browser.sleep(1000)
+        expect(libs.open_account(data)).toContain('Account created')
+        browser.sleep(1000)
+        libs.delete_account(data)
+    })
 
 })

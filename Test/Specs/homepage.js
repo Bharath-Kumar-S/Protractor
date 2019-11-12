@@ -3,6 +3,8 @@ const libs = require('../Pages/homepage_pages').libs
 
 describe('Simple tests', function () {
 
+    browser.ignoreSynchronization = false;
+
     beforeEach(function () {
         browser.driver.get('http://juliemr.github.io/protractor-demo/');
     });
@@ -14,6 +16,27 @@ describe('Simple tests', function () {
     it('should add one and two', function () {
         libs.add(1, 2);
         expect(homepage.latest.getText()).toEqual('3');
+    });
+
+    it('should sub two and one', function () {
+        libs.sub(2, 1);
+        expect(homepage.latest.getText()).toEqual('1');
+    });
+
+    it('should Multiply two and five', function () {
+        libs.mul(2, 5);
+        expect(homepage.latest.getText()).toEqual('10');
+    });
+
+    it('should Divide ten by five', function () {
+        libs.div(10, 5);
+        expect(homepage.latest.getText()).toEqual('2');
+    });
+
+
+    it('should calculate mod of ten by five', function () {
+        libs.mod(10, 5);
+        expect(homepage.latest.getText()).toEqual('0');
     });
 
     it('should read the value from an input', function () {
