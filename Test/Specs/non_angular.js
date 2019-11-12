@@ -10,6 +10,7 @@ describe('To test non angular site', () => {
         element(by.xpath('//input[@name="btnK" and @value="Google Search"]')).submit();
         let expected = protractor.ExpectedConditions;
         browser.wait(expected.visibilityOf(element(by.xpath('//h3[text()="Protractor - end-to-end testing for AngularJS"]'))));
+        expect(element(by.xpath('//h3[text()="Protractor - end-to-end testing for AngularJS"]')).getText()).toContain('Protractor')
     })
 
 })
