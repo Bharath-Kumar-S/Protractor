@@ -1,6 +1,3 @@
-// import { browser, element, by, protractor } from "protractor"
-
-
 describe('To test non angular site', () => {
 
     it('Simple test for non angular page', () => {
