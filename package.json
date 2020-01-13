@@ -4,6 +4,7 @@
   "description": "",
   "main": "config.js",
   "scripts": {
+    "webdriver-update": "webdriver-manager update",
     "test": "protractor Test/config.js"
   },
   "repository": {

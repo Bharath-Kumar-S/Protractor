@@ -22,12 +22,12 @@ exports.config = {
             })
         );
     },
-    // capabilities: {
-    //     browserName: 'chrome'
-    //     chromeOptions: {
-    //         args: ['--disable-notifications']
-    //     }
-    // },
+    capabilities: {
+        browserName: 'chrome',
+        chromeOptions: {
+            args: ['--disable-notifications',"--headless","--disable-gpu","--window-size=800,600","--no-sandbox","--disable-dev-shm-usage"]
+        }
+    }
     // multiCapabilities: [{
     //     browserName: 'firefox'
     // }, {
