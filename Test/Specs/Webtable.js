@@ -14,8 +14,8 @@ describe('Way2automate webtable tests', () => {
     })
 
     it('Check the number of rows in webtable', () => {
-        // expect(libs.getrowsCount()).toEqual(7)
-        expect(libs.getrowsCount()).toEqual(6)
+        expect(libs.getrowsCount()).toEqual(7)
+        // expect(libs.getrowsCount()).toEqual(6)
     })
 
     it('Print rows info of the webtable', () => {

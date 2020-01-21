@@ -13,6 +13,12 @@ exports.config = {
         browser.ignoreSynchronization = false;
         browser.manage().deleteAllCookies().then(() => { console.log("cache cleared") }
         );
+         //Add custom reporter which only counts 
+         jasmine.getEnv().addReporter({
+            jasmineStarted: function (suiteInfo) {
+                console.log(`Due to execute #${suiteInfo.totalSpecsDefined} specs in total`);
+            }
+        });
         jasmine.getEnv().addReporter(
             new Jasmine2HtmlReporter({
                 savePath: 'target/screenshots',
@@ -24,10 +30,22 @@ exports.config = {
     },
     capabilities: {
         browserName: 'chrome',
-        chromeOptions: {
-            args: ['--disable-notifications',"--headless","--disable-gpu","--window-size=800,600","--no-sandbox","--disable-dev-shm-usage"]
-        }
+    //     chromeOptions: {
+    //         args: ['--disable-notifications',"--headless","--disable-gpu","--window-size=800,600","--no-sandbox","--disable-dev-shm-usage"]
+    //     }
     }
+    // multiCapabilities: [
+    //     {
+    //         browserName: 'firefox',
+    //         firefoxOptions: {
+    //             args: ['--headless']
+    //         },
+    //         'moz:firefoxOptions': {
+    //             args: ['--headless']
+    //         }
+    //     }
+    // ]
+
     // multiCapabilities: [{
     //     browserName: 'firefox'
     // }, {
